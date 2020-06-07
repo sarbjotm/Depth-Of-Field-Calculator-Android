@@ -41,4 +41,9 @@ public class Lens {
     public void setFocalLength(double focalLength) {
         this.focalLength = focalLength;
     }
+
+    @Override
+    public String toString() {
+        return make + ' ' + maxAperture + " " + focalLength;
+    }
 }
