@@ -1,0 +1,2 @@
+rootProject.name='CMPT 276 A2'
+include ':app'
