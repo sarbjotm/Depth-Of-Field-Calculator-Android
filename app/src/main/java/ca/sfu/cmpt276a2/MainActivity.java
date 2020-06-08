@@ -29,11 +29,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lensManager = LensManager.getInstance();
         populateLensView();
+        switchActivities();
+
+
+    }
+
+    private void switchActivities(){
         FloatingActionButton  btn = (FloatingActionButton) findViewById(R.id.bthAddLenses);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,addingLens.class);
+//                Intent intent = addingLens.makeIntent(MainActivity.this);
+                Intent intent = addingLens.makeIntent(MainActivity.this);
                 startActivity(intent);
             }
         });
