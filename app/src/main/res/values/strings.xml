@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Depth Of Field Calculator</string>
     <string name="welcome_to_the_depth_of_field_calculator">Select a lens to use: </string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="makeview">Make</string>
+    <string name="cameraMake">label</string>
+    <string name="CMname">Name</string>
+    <string name="focalLengthview">Focal Length [mm]</string>
+    <string name="enterCameraMake">ex: Canon</string>
+    <string name="enterFocalLength">ex: 200 for 200 mm</string>
+    <string name="enterAperture">ex: 2.8 for F2.8</string>
+    <string name="FFname" />
+    <string name="apertureName">Aperture</string>
+    <string name="aName" />
 </resources>

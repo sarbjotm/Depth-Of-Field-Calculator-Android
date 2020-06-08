@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-public class addingLens extends AppCompatActivity {
+public class AddLensesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +29,6 @@ public class addingLens extends AppCompatActivity {
         });
     }
     public static Intent makeIntent(Context context){
-        return new Intent(context, addingLens.class);
+        return new Intent(context, AddLensesActivity.class);
     }
 }

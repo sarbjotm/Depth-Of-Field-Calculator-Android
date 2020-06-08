@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -40,13 +38,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Intent intent = addingLens.makeIntent(MainActivity.this);
-                Intent intent = addingLens.makeIntent(MainActivity.this);
+                Intent intent = AddLensesActivity.makeIntent(MainActivity.this);
                 startActivity(intent);
             }
         });
 
     }
-
 
     private void populateLensView(){
 
@@ -54,10 +51,6 @@ public class MainActivity extends AppCompatActivity {
         List<String> lensStrings = new ArrayList<>();
         for(Lens lens : lensManager.getLenses()){
             lensStrings.add(lens.toString());
-        }
-
-        for(String string : lensStrings){
-            System.out.println(string);
         }
 
         //Build array adapter
