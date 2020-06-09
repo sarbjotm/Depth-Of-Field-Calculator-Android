@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,25 +33,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lensManager = LensManager.getInstance();
         populateLensView();
+        deptOfFieldPanelCallBack();
         switchActivities();
-
-
 
     }
 
+    private void deptOfFieldPanelCallBack(){
+        ListView listView = (ListView) findViewById(R.id.LensView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {//anonymous class
+            @Override
+            public void onItemClick(AdapterView<?> parent,
+                                    View view,
+                                    int position,
+                                    long id) {
+                lensManager.savePosition(position);//store position value
+                Intent intent = DoFCalculatorActivity.makeIntent(MainActivity.this);
+                startActivity(intent);
+            }
+        });
+    }
+
     private void switchActivities(){
-        FloatingActionButton  btn = (FloatingActionButton) findViewById(R.id.bthAddLenses);
+        FloatingActionButton btn = (FloatingActionButton) findViewById(R.id.bthAddLenses);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = addingLens.makeIntent(MainActivity.this);
                 Intent intent = AddLensesActivity.makeIntent(MainActivity.this);
-
                 startActivityForResult(intent, REQUEST_CODE_GETMESSAGE);
 
             }
         });
-
     }
 
     @Override
@@ -60,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
                     String make = data.getStringExtra("modelMake");
                     String focal = data.getStringExtra("modelFocal");
                     String aperture = data.getStringExtra("modelAperture");
-                    Lens lens = new Lens(make, Double.parseDouble(focal),Double.parseDouble(aperture));
+
+                    Lens lens = new Lens(make, Double.parseDouble(focal),
+                                        Double.parseDouble(aperture));
                     lensManager.add(lens);
-                    populateLensView();
-
+                    populateLensView();//reinitialize ListView
                 }
-
                 else{
                     Log.i("MyApp","Failed!");
                 }
@@ -73,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void populateLensView(){
-
-        //store lens strings
         List<String> lensStrings = new ArrayList<>();
         for(Lens lens : lensManager.getLenses()){
             lensStrings.add(lens.toString());
@@ -90,6 +101,5 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.LensView);
         listView.setAdapter(lensAdapter);
     }
-
 
 }

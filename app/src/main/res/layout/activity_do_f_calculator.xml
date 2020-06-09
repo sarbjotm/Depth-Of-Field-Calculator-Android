@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".DoFCalculatorActivity">
+
+    <TextView
+        android:id="@+id/NearFocalDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/NearFocalDistance"
+        app:layout_constraintBottom_toTopOf="@+id/FarFocalDistance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.957" />
+
+    <TextView
+        android:id="@+id/NearFocalDistanceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="103dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/nearFocalDistanceValue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/FarFocalDistanceValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/NearFocalDistance"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967" />
+
+    <TextView
+        android:id="@+id/FarFocalDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/FarFocalDistance"
+        app:layout_constraintBottom_toTopOf="@+id/DepthOfField"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/FarFocalDistanceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="103dp"
+        android:layout_marginBottom="18dp"
+        android:text="@string/FarFocalDistanceValue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/DepthOfFieldValues"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/FarFocalDistance" />
+
+    <TextView
+        android:id="@+id/DepthOfField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/DepthOfField"
+        app:layout_constraintBottom_toTopOf="@+id/HyperFocalDistance"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/DepthOfFieldValues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="103dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/DepthOfFieldValue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/HyperFocalDistanceValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/DepthOfField" />
+
+    <TextView
+        android:id="@+id/HyperFocalDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/HyperFocalDistance"
+        app:layout_constraintBottom_toTopOf="@+id/border"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/HyperFocalDistanceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="19dp"
+        android:text="@string/HyperFocalDistanceValue"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/HyperFocalDistance" />
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginBottom="416dp"
+        android:background="#474747"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/DoFheaderText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/circleOfConfusion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/border"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/lensTag"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="239dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/LensName"
+        app:layout_constraintBottom_toTopOf="@+id/circleOfConfusion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/border"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/circleOfConfusion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="36dp"
+        android:text="@string/circleOfConfusion"
+        app:layout_constraintBottom_toTopOf="@+id/distance"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/distance"
+        app:layout_constraintBottom_toTopOf="@+id/aperture"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/aperture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="236dp"
+        android:text="@string/aperture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editcircleOfConfusion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/editcircleOfConfusion"
+        android:text="@string/CoC_const"
+        app:layout_constraintBottom_toTopOf="@+id/editDistance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/circleOfConfusion"
+        app:layout_constraintTop_toBottomOf="@+id/border"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/editDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="7dp"
+        android:autofillHints="@string/distance_autofill"
+        android:ems="10"
+        android:hint="@string/distance_autofill"
+        android:inputType="numberDecimal"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/editApertureInDoF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/distance" />
+
+    <EditText
+        android:id="@+id/editApertureInDoF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="228dp"
+        android:autofillHints="@string/aperture_autofill"
+        android:ems="10"
+        android:hint="@string/aperture_autofill"
+        android:inputType="numberDecimal"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="294dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="163dp"
+        android:text="@string/CalculateButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editApertureInDoF" />
+</androidx.constraintlayout.widget.ConstraintLayout>

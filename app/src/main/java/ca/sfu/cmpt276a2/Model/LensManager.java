@@ -9,18 +9,28 @@ import java.util.List;
 public class LensManager {
 
     private List<Lens> lens = new ArrayList<>();
+    private static int positionID;//to store the position selected in the ListView
 
     /**
      * Singleton support code
      */
     private static LensManager instance;
+
     public static LensManager getInstance(){
         if(instance == null)
             instance = new LensManager();
         return instance;
     }
 
-    //Constrcutor privatized to restrict instantiation of another LensManager
+    public static void savePosition(int ID){
+        positionID = ID;//saving the position into the static int
+    }
+
+    public static int getPosition(){
+        return positionID;
+    }
+
+    //Constructor privatized to restrict instantiation of another LensManager
     private LensManager(){
         lens.add(new Lens("Canon", 1.8, 50));
         lens.add(new Lens("Tamron", 2.8, 90));

@@ -113,7 +113,7 @@
         android:autofillHints="@string/enterAperture"
         android:ems="10"
         android:hint="@string/enterAperture"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:text="@string/aName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

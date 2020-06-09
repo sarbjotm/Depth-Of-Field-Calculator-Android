@@ -13,4 +13,21 @@
     <string name="FFname" />
     <string name="apertureName">Aperture</string>
     <string name="aName" />
+    <string name="NearFocalDistance">Near Focal Distance</string>
+    <string name="nearFocalDistanceValue">Enter All Values</string>
+    <string name="FarFocalDistance">Far Focal Distance</string>
+    <string name="FarFocalDistanceValue">Enter All Values</string>
+    <string name="DepthOfField">Depth Of Field</string>
+    <string name="DepthOfFieldValue">Enter All Values</string>
+    <string name="HyperFocalDistance">Hyper Focal Distance</string>
+    <string name="HyperFocalDistanceValue">Enter All Values</string>
+    <string name="DoFheaderText">"Photo details with "</string>
+    <string name="LensName">Lens</string>
+    <string name="circleOfConfusion">Circle Of Confusion [m]</string>
+    <string name="distance">Distance to subject [m]</string>
+    <string name="aperture">Selected Aperture</string>
+    <string name="CoC_const">0.029</string>
+    <string name="distance_autofill">ex: 1.5 for 1.5m</string>
+    <string name="aperture_autofill">ex: 2.8 for F2.8</string>
+    <string name="CalculateButton">CALCULATE</string>
 </resources>

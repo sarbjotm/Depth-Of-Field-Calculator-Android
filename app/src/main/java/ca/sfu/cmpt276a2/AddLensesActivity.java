@@ -17,10 +17,12 @@ public class AddLensesActivity extends AppCompatActivity {
     private double distance;
     private double aperture;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adding_lens);
+        this.setTitle("Lens Details");
         setupEndAddingLensesBtn();
         setupSaveBtn();
     }
@@ -31,8 +33,7 @@ public class AddLensesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish(); //terminates current activity and returns to previous
-                }
-
+            }
         });
     }
 
@@ -56,7 +57,6 @@ public class AddLensesActivity extends AppCompatActivity {
 
                 setResult(Activity.RESULT_OK, intent);
                 finish();
-
             }
 
         });
