@@ -1,12 +1,16 @@
 package ca.sfu.cmpt276a2;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -20,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private LensManager lensManager;
 
-
+    public static final int REQUEST_CODE_GETMESSAGE = 1014;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         lensManager = LensManager.getInstance();
         populateLensView();
         switchActivities();
+
 
 
     }
@@ -39,10 +44,32 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                Intent intent = addingLens.makeIntent(MainActivity.this);
                 Intent intent = AddLensesActivity.makeIntent(MainActivity.this);
-                startActivity(intent);
+
+                startActivityForResult(intent, REQUEST_CODE_GETMESSAGE);
+
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch(requestCode){
+            case REQUEST_CODE_GETMESSAGE:
+                if (resultCode == Activity.RESULT_OK){
+                    String make = data.getStringExtra("modelMake");
+                    String focal = data.getStringExtra("modelFocal");
+                    String aperture = data.getStringExtra("modelAperture");
+                    Lens lens = new Lens(make, Double.parseDouble(focal),Double.parseDouble(aperture));
+                    lensManager.add(lens);
+                    populateLensView();
+
+                }
+
+                else{
+                    Log.i("MyApp","Failed!");
+                }
+        }
     }
 
     private void populateLensView(){
