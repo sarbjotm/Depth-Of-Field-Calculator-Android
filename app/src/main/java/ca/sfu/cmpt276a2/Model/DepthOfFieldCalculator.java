@@ -1,5 +1,7 @@
 package ca.sfu.cmpt276a2.Model;
 
+import java.text.DecimalFormat;
+
 /**
  * A class designed to spit out an object containing specific calculated values for a camera lens
  * taking a photo of an object at a particular Distance using a certain Aperture

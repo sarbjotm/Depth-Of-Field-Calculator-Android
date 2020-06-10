@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lensManager = LensManager.getInstance();
         populateLensView();
-        deptOfFieldPanelCallBack();
+        depthOfFieldPanelCallBack();
         switchActivities();
 
     }
 
-    private void deptOfFieldPanelCallBack(){
+    private void depthOfFieldPanelCallBack(){
         ListView listView = (ListView) findViewById(R.id.LensView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {//anonymous class
             @Override

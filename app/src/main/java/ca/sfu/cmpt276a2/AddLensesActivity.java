@@ -74,19 +74,14 @@ public class AddLensesActivity extends AppCompatActivity {
                 }
 
                 else{
+                    intent.putExtra("modelMake", make);
+                    intent.putExtra("modelFocal", focalLength);
+                    intent.putExtra("modelAperture", apertureLength);
 
-
-                intent.putExtra("modelMake", make);
-
-
-                intent.putExtra("modelFocal", focalLength);
-
-
-                intent.putExtra("modelAperture", apertureLength);
-
-                setResult(Activity.RESULT_OK, intent);
-                finish();
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
                 }
+
             }
 
         });
