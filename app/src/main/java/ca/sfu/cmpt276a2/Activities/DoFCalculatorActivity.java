@@ -80,7 +80,7 @@ public class DoFCalculatorActivity extends AppCompatActivity {
                 }
                 else if (Double.parseDouble(aperture) < chosenLens.getMaxAperture()){
                     editApertureInDoF.setError("Aperture must be greater than or equal to lens max aperture");
-                }//holy fuck so many error cases damn
+                }
                 //code block after authentication
                 else{
                     intent.putExtra("calculateCircleOfConfusion", circleOfConfusion);

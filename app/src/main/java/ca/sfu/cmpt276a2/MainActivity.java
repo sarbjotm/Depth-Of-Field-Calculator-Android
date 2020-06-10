@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -91,19 +92,27 @@ public class MainActivity extends AppCompatActivity {
 
     private void populateLensView(){
         List<String> lensStrings = new ArrayList<>();
-        for(Lens lens : lensManager.getLenses()){
-            lensStrings.add(lens.toString());
+            for (Lens lens : lensManager.getLenses()) {
+                lensStrings.add(lens.toString());
+            }
+        if (lensStrings.isEmpty()){
+            TextView noLensStored = (TextView) findViewById(R.id.welcomeText);
+            noLensStored.setVisibility(View.VISIBLE);
         }
+        else {
+            TextView noLensStored = (TextView) findViewById(R.id.welcomeText);
+            noLensStored.setVisibility(View.INVISIBLE);
+            //Build array adapter
+            ArrayAdapter<String> lensAdapter = new ArrayAdapter<String>(
+                    this,                   //Activity context
+                    R.layout.lensmanager_items,     //Layout to use (create)
+                    lensStrings);                   //Items to display
 
-        //Build array adapter
-        ArrayAdapter<String> lensAdapter = new ArrayAdapter<String>(
-                this,                   //Activity context
-                R.layout.lensmanager_items,     //Layout to use (create)
-                lensStrings);                   //Items to display
+            //Configure ListView
 
-        //Configure ListView
-        ListView listView = (ListView) findViewById(R.id.LensView);
-        listView.setAdapter(lensAdapter);
+            ListView listView = (ListView) findViewById(R.id.LensView);
+            listView.setAdapter(lensAdapter);
+        }
     }
 
 }

@@ -30,6 +30,7 @@
         android:id="@+id/bthAddLenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#1A021E"
         android:clickable="true"
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,5 +40,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="251dp"
+        android:text="To Add an Lens click on the Plus Icon on the bottom right, and follow the instructions on the page"
+        app:layout_constraintBottom_toTopOf="@+id/bthAddLenses"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="169dp"
+        android:text="Optional Featue List \n 2. Edit and Delete Lens \n 3. Error Checking \n 7. Empty State"
+        android:textColor="#5C5B5B"
+        app:layout_constraintEnd_toStartOf="@+id/bthAddLenses"
+        app:layout_constraintTop_toTopOf="@+id/welcomeText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
