@@ -61,12 +61,19 @@ public class AddLensesActivity extends AppCompatActivity {
                     editFocalLength.setError("Field can't be empty");
                 }
 
+                else if(Double.parseDouble(focalLength) < 0){
+                    editFocalLength.setError("Focal Length must be greater than 0");
+                }
+
                 else if (apertureLength.isEmpty()){
                     editAperture.setError("Field can't be empty");
                 }
 
-                else{
+                else if (Double.parseDouble(apertureLength) < 1.4){
+                    editAperture.setError("Aperture must be greater then 1.4");
+                }
 
+                else{
 
 
                 intent.putExtra("modelMake", make);
