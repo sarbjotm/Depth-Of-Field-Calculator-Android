@@ -62,7 +62,11 @@ public class DoFCalculatorActivity extends AppCompatActivity {
                 EditText editApertureInDoF = (EditText) findViewById(R.id.editApertureInDoF);
                 aperture = editApertureInDoF.getText().toString().trim();
 
-                //Error cases
+                /*
+                Possible Inputs that'll cause the App to Crash, if these inputs entered display error field
+
+                */
+                 */
                 if (circleOfConfusion.isEmpty()){
                     editCircleofConfusion.setError("Field can't be empty");
                 }
@@ -81,7 +85,7 @@ public class DoFCalculatorActivity extends AppCompatActivity {
                 else if (Double.parseDouble(aperture) < chosenLens.getMaxAperture()){
                     editApertureInDoF.setError("Aperture must be greater than or equal to lens max aperture");
                 }
-                //code block after authentication
+                //If no errors
                 else{
                     intent.putExtra("calculateCircleOfConfusion", circleOfConfusion);
                     intent.putExtra("calculateDistance", distance);

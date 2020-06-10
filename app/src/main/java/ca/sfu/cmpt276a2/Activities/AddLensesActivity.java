@@ -19,7 +19,7 @@ public class AddLensesActivity extends AppCompatActivity {
     private double distance;
     private double aperture;
 
-
+    //Create onCreate Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ public class AddLensesActivity extends AppCompatActivity {
         setupSaveBtn();
     }
 
+    //If user hits cancel button, just cancel
     private void setupEndAddingLensesBtn(){
         Button btn = (Button) findViewById(R.id.btnCancel);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +39,7 @@ public class AddLensesActivity extends AppCompatActivity {
             }
         });
     }
-
+    //If user hits save
     private void setupSaveBtn(){
         Button btn = (Button) findViewById(R.id.btnSave);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +55,7 @@ public class AddLensesActivity extends AppCompatActivity {
                 EditText editAperture = (EditText) findViewById(R.id.editAperture);
                 String apertureLength = editAperture.getText().toString().trim();
 
+                //Checking for errors such as empty fields
                 if (make.isEmpty()){
                     editMake.setError("Field can't be empty");
                 }
@@ -73,13 +75,13 @@ public class AddLensesActivity extends AppCompatActivity {
                 else if (Double.parseDouble(apertureLength) <= 1.4){
                     editAperture.setError("Aperture must be greater than or equal to 1.4");
                 }
-
+                //If no erorrs
                 else{
                     intent.putExtra("modelMake", make);
                     intent.putExtra("modelFocal", focalLength);
                     intent.putExtra("modelAperture", apertureLength);
 
-                    setResult(Activity.RESULT_OK, intent);
+                    setResult(Activity.RESULT_OK, intent); //Return Data to main
                     finish();
                 }
 

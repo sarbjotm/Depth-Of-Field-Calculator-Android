@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //After getting the Lens Information from the AddLensesActivity, create a lens and add to manager
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch(requestCode){
@@ -84,17 +86,19 @@ public class MainActivity extends AppCompatActivity {
                     lensManager.add(lens);
                     populateLensView();//reinitialize ListView
                 }
-                else{
+                else{ //If adding lense failed
                     Log.i("MyApp","Failed!");
                 }
         }
     }
 
+    //Display Lenses
     private void populateLensView(){
         List<String> lensStrings = new ArrayList<>();
             for (Lens lens : lensManager.getLenses()) {
                 lensStrings.add(lens.toString());
             }
+        //EMPTY STATE: If empty, show instructions on how to add Lenses
         if (lensStrings.isEmpty()){
             TextView noLensStored = (TextView) findViewById(R.id.welcomeText);
             noLensStored.setVisibility(View.VISIBLE);
