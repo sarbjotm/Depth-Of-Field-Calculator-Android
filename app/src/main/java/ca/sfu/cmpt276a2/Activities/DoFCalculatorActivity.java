@@ -66,7 +66,7 @@ public class DoFCalculatorActivity extends AppCompatActivity {
                 Possible Inputs that'll cause the App to Crash, if these inputs entered display error field
 
                 */
-                 */
+
                 if (circleOfConfusion.isEmpty()){
                     editCircleofConfusion.setError("Field can't be empty");
                 }
