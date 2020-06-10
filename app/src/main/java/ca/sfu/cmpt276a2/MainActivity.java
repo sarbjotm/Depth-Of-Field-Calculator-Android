@@ -1,9 +1,9 @@
 package ca.sfu.cmpt276a2;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,22 +11,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.sfu.cmpt276a2.Activities.AddLensesActivity;
+import ca.sfu.cmpt276a2.Activities.DoFCalculatorActivity;
 import ca.sfu.cmpt276a2.Model.Lens;
 import ca.sfu.cmpt276a2.Model.LensManager;
 
 public class MainActivity extends AppCompatActivity {
 
     private LensManager lensManager;
-
     public static final int REQUEST_CODE_GETMESSAGE = 1014;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static Intent makeMainIntent(Context context){
+        return new Intent(context, MainActivity.class);
+    }
+
     private void depthOfFieldPanelCallBack(){
         ListView listView = (ListView) findViewById(R.id.LensView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {//anonymous class
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                                     int position,
                                     long id) {
                 lensManager.savePosition(position);//store position value
-                Intent intent = DoFCalculatorActivity.makeIntent(MainActivity.this);
+                Intent intent = DoFCalculatorActivity.makeDoFCalculatorIntent(MainActivity.this);
                 startActivity(intent);
             }
         });
@@ -58,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = AddLensesActivity.makeIntent(MainActivity.this);
+                Intent intent = AddLensesActivity.makeAddLensesIntent(MainActivity.this);
                 startActivityForResult(intent, REQUEST_CODE_GETMESSAGE);
 
             }
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     String aperture = data.getStringExtra("modelAperture");
 
                     Lens lens = new Lens(make, Double.parseDouble(focal),
-                                        Double.parseDouble(aperture));
+                                Double.parseDouble(aperture));
                     lensManager.add(lens);
                     populateLensView();//reinitialize ListView
                 }

@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DoFCalculatorActivity"></activity>
-        <activity android:name=".AddLensesActivity" />
+        <activity android:name=".Activities.EditLensesActivity"></activity>
+        <activity android:name=".Activities.DoFCalculatorActivity" />
+        <activity android:name=".Activities.AddLensesActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

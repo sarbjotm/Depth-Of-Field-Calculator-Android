@@ -15,6 +15,7 @@ public class LensManager {
      * Singleton support code
      */
     private static LensManager instance;
+    private static boolean editButtonclicked = false;//keep track of Edit button functionality
 
     public static LensManager getInstance(){
         if(instance == null)
@@ -29,6 +30,8 @@ public class LensManager {
     public static int getPosition(){
         return positionID;
     }
+    public static boolean getEditState() { return editButtonclicked; }
+    public static void setEditState(boolean value) { editButtonclicked = value; }
 
     //Constructor privatized to restrict instantiation of another LensManager
     private LensManager(){
@@ -59,5 +62,17 @@ public class LensManager {
                 continue;
         }
         throw new IndexOutOfBoundsException("Error: Invalid lens index.");
+    }
+
+    public void editLens(Lens chosenLens, String make,
+                             double maxAperture, double focalLength)//edit functionality
+    {
+        lens.remove(chosenLens);
+        Lens addlens = new Lens(make, maxAperture, focalLength);
+        lens.add(addlens);
+    }
+
+    public void delete(Lens chosenLens){//delete functionality
+        lens.remove(chosenLens);
     }
 }

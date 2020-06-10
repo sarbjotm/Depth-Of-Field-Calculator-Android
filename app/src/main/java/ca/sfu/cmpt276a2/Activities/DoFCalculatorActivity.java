@@ -1,8 +1,7 @@
-package ca.sfu.cmpt276a2;
+package ca.sfu.cmpt276a2.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +12,11 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
+import ca.sfu.cmpt276a2.MainActivity;
 import ca.sfu.cmpt276a2.Model.DepthOfFieldCalculator;
 import ca.sfu.cmpt276a2.Model.Lens;
 import ca.sfu.cmpt276a2.Model.LensManager;
+import ca.sfu.cmpt276a2.R;
 
 public class DoFCalculatorActivity extends AppCompatActivity {
 
@@ -38,9 +39,11 @@ public class DoFCalculatorActivity extends AppCompatActivity {
         editLenses.setText(chosenLens.toString());
 
         calculateButtonFunction();
+        editFunctionButton();
+        deleteFunctionButton();
     }
 
-    public static Intent makeIntent(Context context){
+    public static Intent makeDoFCalculatorIntent(Context context){
         return new Intent(context, DoFCalculatorActivity.class);
     }
 
@@ -63,26 +66,21 @@ public class DoFCalculatorActivity extends AppCompatActivity {
                 if (circleOfConfusion.isEmpty()){
                     editCircleofConfusion.setError("Field can't be empty");
                 }
-
                 else if(Double.parseDouble(circleOfConfusion) <= 0 ){
                     editCircleofConfusion.setError("Must be greater than 0");
                 }
-
                 else if (distance.isEmpty()){
                     editDistance.setError("Field can't be empty");
                 }
-
                 else if (Double.parseDouble(distance) <= 0){
                     editDistance.setError("Distance must be greater than 0");
                 }
-
                 else if (aperture.isEmpty()){
                     editApertureInDoF.setError("Field can't be empty");
                 }
-
                 else if (Double.parseDouble(aperture) < chosenLens.getMaxAperture()){
                     editApertureInDoF.setError("Aperture must be greater than or equal to lens max aperture");
-                }
+                }//holy fuck so many error cases damn
                 //code block after authentication
                 else{
                     intent.putExtra("calculateCircleOfConfusion", circleOfConfusion);
@@ -93,6 +91,32 @@ public class DoFCalculatorActivity extends AppCompatActivity {
 
             }
 
+        });
+    }
+
+    private void deleteFunctionButton(){
+        Button button = (Button) findViewById(R.id.deleteButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lensManager.delete(chosenLens);//safely delete chosenLens from Lens list
+                Intent intent = MainActivity.makeMainIntent(DoFCalculatorActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    private void editFunctionButton(){
+        Button button = (Button) findViewById(R.id.editButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = EditLensesActivity.makeEditLensesIntent(DoFCalculatorActivity.this);
+                startActivity(intent);
+                finish();
+            }
         });
     }
 

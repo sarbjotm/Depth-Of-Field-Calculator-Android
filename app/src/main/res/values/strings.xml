@@ -30,4 +30,6 @@
     <string name="distance_autofill">ex: 1.5 for 1.5m</string>
     <string name="aperture_autofill">ex: 2.8 for F2.8</string>
     <string name="CalculateButton">CALCULATE</string>
+    <string name="editLensButton">Edit Lens</string>
+    <string name="deleteLensButton">Delete</string>
 </resources>

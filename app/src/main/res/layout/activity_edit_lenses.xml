@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.AddLensesActivity">
+    tools:context=".Activities.EditLensesActivity">
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/editSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/btnCancel"
+        android:id="@+id/editCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cancel"
@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <TextView
-        android:id="@+id/makeView"
+        android:id="@+id/ediMakeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -39,7 +39,7 @@
         android:layout_marginEnd="358dp"
         android:layout_marginBottom="29dp"
         android:text="@string/makeview"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCameraMake"
+        app:layout_constraintBottom_toTopOf="@+id/editMakeValue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editTextCameraMake"
+        android:id="@+id/editMakeValue"
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -58,25 +58,25 @@
         android:hint="@string/enterCameraMake"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/focalLengthView"
+        app:layout_constraintBottom_toTopOf="@+id/editFocalLengthView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/focalLengthView"
+        android:id="@+id/editFocalLengthView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="279dp"
         android:layout_marginBottom="29dp"
         android:text="@string/focalLengthview"
-        app:layout_constraintBottom_toTopOf="@+id/editFocalLength"
+        app:layout_constraintBottom_toTopOf="@+id/editFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editFocalLength"
+        android:id="@+id/editFF"
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -87,24 +87,24 @@
         android:hint="@string/enterFocalLength"
         android:inputType="number"
         android:text="@string/FFname"
-        app:layout_constraintBottom_toTopOf="@+id/apertureView"
+        app:layout_constraintBottom_toTopOf="@+id/editApertureView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/apertureView"
+        android:id="@+id/editApertureView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="338dp"
         android:layout_marginBottom="30dp"
         android:text="@string/apertureName"
-        app:layout_constraintBottom_toTopOf="@+id/editAperture"
+        app:layout_constraintBottom_toTopOf="@+id/editApertureValue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editAperture"
+        android:id="@+id/editApertureValue"
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:layout_marginStart="19dp"
