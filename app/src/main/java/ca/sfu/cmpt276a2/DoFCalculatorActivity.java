@@ -45,12 +45,24 @@ public class DoFCalculatorActivity extends AppCompatActivity {
                     editCircleofConfusion.setError("Field can't be empty");
                 }
 
+                else if(Double.parseDouble(circleOfConfusion) <= 0 ){
+                    editCircleofConfusion.setError("Must be greater than 0");
+                }
+
                 else if (distance.isEmpty()){
                     editDistance.setError("Field can't be empty");
                 }
 
+                else if (Double.parseDouble(distance) <= 0){
+                    editDistance.setError("Distance must be greater than 0");
+                }
+
                 else if (aperture.isEmpty()){
                     editApertureInDoF.setError("Field can't be empty");
+                }
+
+                else if (Double.parseDouble(aperture) < 1.4){
+                    editApertureInDoF.setError("Aperture must be greater than or equal to 1.4");
                 }
 
                 else{
