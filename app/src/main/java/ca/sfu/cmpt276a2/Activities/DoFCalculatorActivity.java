@@ -38,7 +38,6 @@ public class DoFCalculatorActivity extends AppCompatActivity {
         TextView editLenses = (TextView) findViewById(R.id.lensTag);
         editLenses.setText(chosenLens.toString());
 
-        calculateButtonFunction();
         reCalculate();
         editFunctionButton();
         deleteFunctionButton();
@@ -46,64 +45,6 @@ public class DoFCalculatorActivity extends AppCompatActivity {
 
     public static Intent makeDoFCalculatorIntent(Context context){
         return new Intent(context, DoFCalculatorActivity.class);
-    }
-
-    private void calculateButtonFunction(){
-        Button btn = (Button) findViewById(R.id.calculateButton);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                EditText editCircleofConfusion = (EditText) findViewById(R.id.editcircleOfConfusion);
-                String circleOfConfusion = editCircleofConfusion.getText().toString().trim();
-
-                EditText editDistance = (EditText) findViewById(R.id.editDistance);
-                distance = editDistance.getText().toString().trim();
-
-                EditText editApertureInDoF = (EditText) findViewById(R.id.editApertureInDoF);
-
-                editApertureInDoF.addTextChangedListener(textChanging);
-                editDistance.addTextChangedListener(textChanging);
-                editCircleofConfusion.addTextChangedListener(textChanging);
-
-                aperture = editApertureInDoF.getText().toString().trim();
-
-
-                /*
-                Possible Inputs that'll cause the App to Crash, if these inputs entered display error field
-
-                */
-
-                if (circleOfConfusion.isEmpty()){
-                    editCircleofConfusion.setError("Field can't be empty");
-                }
-                else if(Double.parseDouble(circleOfConfusion) <= 0 ){
-                    editCircleofConfusion.setError("Must be greater than 0");
-                }
-                else if (distance.isEmpty()){
-                    editDistance.setError("Field can't be empty");
-                }
-                else if (Double.parseDouble(distance) <= 0){
-                    editDistance.setError("Distance must be greater than 0");
-                }
-
-                else if (aperture.isEmpty()){
-                    editApertureInDoF.setError("Field can't be empty");
-                }
-                else if (Double.parseDouble(aperture) < chosenLens.getMaxAperture()){
-                    editApertureInDoF.setError("Aperture must be greater than or equal to lens max aperture");
-                }
-                //If no errors
-                else{
-                    intent.putExtra("calculateCircleOfConfusion", circleOfConfusion);
-                    intent.putExtra("calculateDistance", distance);
-                    intent.putExtra("Aperture", aperture);
-                    updateUI();
-                }
-
-            }
-
-        });
     }
 
     private void reCalculate(){

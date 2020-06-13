@@ -79,7 +79,7 @@ public class EditLensesActivity extends AppCompatActivity {
                     editAperture.setError("Field can't be empty");
                 }
 
-                else if (Double.parseDouble(apertureLength) <= 1.4){
+                else if (Double.parseDouble(apertureLength) < 1.4){
                     editAperture.setError("Aperture must be greater than or equal to 1.4");
                 }
 
