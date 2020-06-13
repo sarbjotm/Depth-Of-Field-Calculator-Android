@@ -39,6 +39,7 @@ public class DoFCalculatorActivity extends AppCompatActivity {
         editLenses.setText(chosenLens.toString());
 
         calculateButtonFunction();
+        reCalculate();
         editFunctionButton();
         deleteFunctionButton();
     }
