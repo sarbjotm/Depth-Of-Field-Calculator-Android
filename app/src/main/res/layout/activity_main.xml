@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="232dp"
         android:layout_marginEnd="169dp"
-        android:text="Optional Featue List \n 2. Edit and Delete Lens \n 3. Error Checking \n 7. Empty State"
+        android:text="Optional Featue List \n 2. Edit and Delete Lens \n 3. Error Checking \n 4. Auto Re Calculate \n 7. Empty State"
         android:textColor="#5C5B5B"
         app:layout_constraintEnd_toStartOf="@+id/bthAddLenses"
         app:layout_constraintTop_toTopOf="@+id/welcomeText" />

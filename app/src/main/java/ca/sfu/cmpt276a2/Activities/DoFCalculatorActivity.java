@@ -5,18 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import java.text.DecimalFormat;
-
 import ca.sfu.cmpt276a2.MainActivity;
 import ca.sfu.cmpt276a2.Model.DepthOfFieldCalculator;
 import ca.sfu.cmpt276a2.Model.Lens;
 import ca.sfu.cmpt276a2.Model.LensManager;
 import ca.sfu.cmpt276a2.R;
+import android.text.TextWatcher;
 
 public class DoFCalculatorActivity extends AppCompatActivity {
 
@@ -60,7 +60,13 @@ public class DoFCalculatorActivity extends AppCompatActivity {
                 distance = editDistance.getText().toString().trim();
 
                 EditText editApertureInDoF = (EditText) findViewById(R.id.editApertureInDoF);
+
+                editApertureInDoF.addTextChangedListener(textChanging);
+                editDistance.addTextChangedListener(textChanging);
+                editCircleofConfusion.addTextChangedListener(textChanging);
+
                 aperture = editApertureInDoF.getText().toString().trim();
+
 
                 /*
                 Possible Inputs that'll cause the App to Crash, if these inputs entered display error field
@@ -79,6 +85,7 @@ public class DoFCalculatorActivity extends AppCompatActivity {
                 else if (Double.parseDouble(distance) <= 0){
                     editDistance.setError("Distance must be greater than 0");
                 }
+
                 else if (aperture.isEmpty()){
                     editApertureInDoF.setError("Field can't be empty");
                 }
@@ -97,6 +104,79 @@ public class DoFCalculatorActivity extends AppCompatActivity {
 
         });
     }
+
+    private void reCalculate(){
+        Intent intent = new Intent();
+        EditText editCircleofConfusion = (EditText) findViewById(R.id.editcircleOfConfusion);
+        String circleOfConfusion = editCircleofConfusion.getText().toString().trim();
+
+        EditText editDistance = (EditText) findViewById(R.id.editDistance);
+        distance = editDistance.getText().toString().trim();
+
+        EditText editApertureInDoF = (EditText) findViewById(R.id.editApertureInDoF);
+
+        editApertureInDoF.addTextChangedListener(textChanging);
+        editDistance.addTextChangedListener(textChanging);
+        editCircleofConfusion.addTextChangedListener(textChanging);
+
+        aperture = editApertureInDoF.getText().toString().trim();
+
+
+                /*
+                Possible Inputs that'll cause the App to Crash, if these inputs entered display error field
+
+                */
+
+        if (circleOfConfusion.isEmpty()){
+            editCircleofConfusion.setError("Field can't be empty");
+        }
+        else if(Double.parseDouble(circleOfConfusion) <= 0 ){
+            editCircleofConfusion.setError("Must be greater than 0");
+        }
+        else if (distance.isEmpty()){
+            editDistance.setError("Field can't be empty");
+        }
+        else if (Double.parseDouble(distance) <= 0){
+            editDistance.setError("Distance must be greater than 0");
+        }
+
+        else if (aperture.isEmpty()){
+            editApertureInDoF.setError("Field can't be empty");
+        }
+        else if (Double.parseDouble(aperture) < chosenLens.getMaxAperture()){
+            editApertureInDoF.setError("Aperture must be greater than or equal to lens max aperture");
+        }
+        //If no errors
+        else{
+            intent.putExtra("calculateCircleOfConfusion", circleOfConfusion);
+            intent.putExtra("calculateDistance", distance);
+            intent.putExtra("Aperture", aperture);
+            updateUI();
+        }
+
+    }
+
+
+
+
+    private TextWatcher textChanging = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            reCalculate();
+        }
+    };
+
+
 
     private void deleteFunctionButton(){
         Button button = (Button) findViewById(R.id.deleteButton);
