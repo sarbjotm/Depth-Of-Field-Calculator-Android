@@ -4,9 +4,6 @@ This repository is for an Android Depth of Field Calculator application.
 ## Introduction
 The user is able to add, edit and remove lenses to an existing list of pre-determined lenses. When a user selects a lens and enters information about the photo they are taking, the app will display the depth of field for the photo. Near Focal Distance, Far Focal Distance and Hyperfocal Distance are all displayed to the user as well. 
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-
 ## Functions
 ### Add Lenses
 When the user presses the add lenses button they are taken to a lens details activity where they enter the make, focal length and aperture of the camera. Before the lens is accepted the application will check if all inputs are valid. If all details are valid the lens is added to the list.
