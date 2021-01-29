@@ -1,4 +1,4 @@
-<p align=center><img src="https://www.clipartmax.com/png/middle/222-2221115_simple-camera-clipart-free-simple-camera-clipart-camera-clip-art-simple.png" height="200" width="200"></p1>
+<p align=center><img src="https://www.pinclipart.com/picdir/middle/61-611898_camera-png-icon-camera-line-icon-png-clipart.png" height="200" width="200"></p1>
 
 # Depth Of Field Calculator
 
